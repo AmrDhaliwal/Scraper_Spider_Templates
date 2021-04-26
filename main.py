@@ -38,9 +38,12 @@ def open_html(path):
 
 ##books.toscrape.com is a website built to practice web scraping
 url = "http://books.toscrape.com/"
-
+r = requests.get(url)
 headers = {"Accept-Language": "en-US, en;q=0.9"}
 
+##Example usage of the functions save_html and open_html
+#save_html(r.content, "books_toscrape")
+html = open_html("books_toscrape")
 ##List to store scraped data
 data = []
 
@@ -54,7 +57,5 @@ for page in pages:
     ##Use the sleep and randomint functions
     ##to slow speed of calls to reduce stress
     ##on website servers
-    #sleep(randint(5, 10))
+    sleep(randint(5, 10))
     data.append(book_ratings)
-
-print(data)
