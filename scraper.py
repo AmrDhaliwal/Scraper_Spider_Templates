@@ -43,20 +43,22 @@ headers = {"Accept-Language": "en-US, en;q=0.9"}
 
 ##Example usage of the functions save_html and open_html
 #save_html(r.content, "books_toscrape")
-html = open_html("books_toscrape")
+html = open_html_file("books_toscrape")
 ##List to store scraped data
 data = []
 
 ##Build a soup object and for loops to loop through
 ##multiple web pages with help from the numpy library
-pages = np.arange(1, 51, 1)
+pages = np.arange(1, 2, 1)
 for page in pages:
     page = requests.get("https://books.toscrape.com" + "/catalogue/page-" + str(page) + ".html", headers=headers)
     soup = BeautifulSoup(page.text, "html.parser")
     book_ratings = soup.find_all("p", class_="star-rating")
+    data.append(book_ratings)
     ##Use the sleep and randomint functions
     ##to slow speed of calls to reduce stress
     ##on website servers
     sleep(randint(5, 10))
-##Maybe create a function that takes a url
-## as an input
+
+#show the data stored
+print(data)
