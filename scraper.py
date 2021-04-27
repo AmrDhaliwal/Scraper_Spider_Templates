@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 
 ##Functions below only need to be used if
 ##Making a lot fo calls to the sites servers
-def save_html(html, path):
+def save_html_file(html, path):
     """Function saves the parsed URL
     as a html object to reduce the
     impact on the sites servers.
@@ -23,7 +23,7 @@ def save_html(html, path):
     with open(path, "wb") as f:
         f.write(html)
 
-def open_html(path):
+def open_html_file(path):
     """Function that opens the saved html file
     from the "save_html" function
 
@@ -58,4 +58,5 @@ for page in pages:
     ##to slow speed of calls to reduce stress
     ##on website servers
     sleep(randint(5, 10))
-    data.append(book_ratings)
+##Maybe create a function that takes a url
+## as an input
