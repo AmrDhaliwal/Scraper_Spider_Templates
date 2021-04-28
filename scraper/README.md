@@ -1,1 +1,1 @@
-# Scraper_Spider_Templates
+# Scraper Template
