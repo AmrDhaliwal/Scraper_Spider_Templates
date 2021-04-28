@@ -1,10 +1,11 @@
+from spidertemplate.spidertemplate.spiders.books import BooksSpider
 import unittest
 import books
 
 class TestBooks(unittest.TestCase):
     
     def setUp(self):
-        self.spider = MySpider()
+        self.spider = BooksSpider()
 
     def test_parse(self):
         response = fake_response('input.html')
